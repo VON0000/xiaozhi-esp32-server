@@ -74,6 +74,9 @@ def check_config_file():
     # 查找缺失的配置项
     missing_keys = find_missing_keys(new_config, old_config)
 
+    if 'music' in missing_keys:
+        missing_keys.remove('music')
+
     if missing_keys:
         error_msg = "您的配置文件太旧了，缺少了：\n"
         error_msg += "\n".join(f"- {key}" for key in missing_keys)

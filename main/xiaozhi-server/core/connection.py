@@ -27,7 +27,7 @@ class TTSException(RuntimeError):
 
 
 class ConnectionHandler:
-    def __init__(self, config: Dict[str, Any], _vad, _asr, _llm, _tts, _music, _memory):
+    def __init__(self, config: Dict[str, Any], _vad, _asr, _llm, _tts, _memory):
         self.config = config
         self.logger = setup_logging()
         self.auth = AuthMiddleware(config)
@@ -87,7 +87,6 @@ class ConnectionHandler:
         self.private_config = None
         self.auth_code_gen = AuthCodeGenerator.get_instance()
         self.is_device_verified = False  # 添加设备验证状态标志
-        self.music_handler = _music
 
     async def handle_connection(self, ws):
         try:
